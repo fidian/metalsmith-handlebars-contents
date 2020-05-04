@@ -29,7 +29,7 @@ handlebars = require("handlebars");
 handlebarsWax = require("handlebars-wax");
 
 module.exports = function(options) {
-    const waxKeys = ['data', 'decorators', 'helpers', 'partials'];
+    const waxKeys = ["data", "decorators", "helpers", "partials"];
     var hb, templates;
 
     options = pluginKit.defaultOptions(
@@ -44,7 +44,7 @@ module.exports = function(options) {
         options
     );
 
-    waxKeys.forEach(key => {
+    waxKeys.forEach((key) => {
         if (!Array.isArray(options[key])) {
             const oldVal = options[key];
 
@@ -59,14 +59,17 @@ module.exports = function(options) {
     return pluginKit.middleware({
         before() {
             hb = handlebarsWax(handlebars.create());
-            waxKeys.forEach(key => {
+            waxKeys.forEach((key) => {
                 if (options[key].length) {
                     debug("Loading " + key);
-                    options[key].forEach(v => {
+                    options[key].forEach((v) => {
                         try {
                             hb[key](v);
                         } catch (e) {
-                            console.log("Encountered error: " + e.toString());
+                            console.log(
+                                "Encountered error during initialization: " +
+                                    e.toString()
+                            );
                         }
                     });
                 } else {
@@ -78,9 +81,18 @@ module.exports = function(options) {
         each(filename, file) {
             debug("Processing: " + filename);
             const source = file.contents.toString();
-            file.contents = '';
-            const compiled = hb.compile(source);
-            file.contents = Buffer.from(compiled(file));
+            file.contents = "";
+            try {
+                const compiled = hb.compile(source);
+                file.contents = Buffer.from(compiled(file));
+            } catch (e) {
+                console.log(
+                    "Encountered error while processing " +
+                        filename +
+                        ": " +
+                        e.toString()
+                );
+            }
         },
         match: options.match,
         matchOptions: options.matchOptions,
