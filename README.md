@@ -46,7 +46,7 @@ Include this like you would include any other plugin.  Here's a CLI example that
         "plugins": {
             "metalsmith-handlebars-contents": {
                 "data": [],
-                "decorators": [],
+                "decorators": [], // DEPRECATED
                 "helpers": [],
                 "match": "**/*.md",
                 "matchOptions": {},
@@ -69,7 +69,7 @@ And this is how you use it in JavaScript, with a small description of each optio
         // Data files to load or data objects to add to global data.
         data: [],
 
-        // Decorators to add
+        // Decorators to add - DEPRECATED, do not use going forward.
         decorators: [],
 
         // Helper functions to include
@@ -87,7 +87,7 @@ And this is how you use it in JavaScript, with a small description of each optio
         partials: ['./partials/**/*']
     })
 
-The items in the `data`, `decorators`, `helpers`, and `partials` arrays can be strings or objects. They are passed to [handlebars-wax] using the appropriate method.
+The items in the `data`, `decorators`, `helpers`, and `partials` arrays can be strings or objects. You may also still use `decorators` in the same way, but they are deprecated. All of these are passed to [handlebars-wax] using the appropriate method.
 
 This uses [metalsmith-plugin-kit](https://github.com/tests-always-included/metalsmith-plugin-kit) to match files.  The `.matchOptions` object can be filled with options to control how files are matched.
 
