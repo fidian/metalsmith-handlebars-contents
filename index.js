@@ -78,13 +78,16 @@ module.exports = function(options) {
             });
             debug("Ready");
         },
-        each(filename, file) {
+        each(filename, file, files, metalsmith) {
             debug("Processing: " + filename);
             const source = file.contents.toString();
             file.contents = "";
             try {
                 const compiled = hb.compile(source);
-                file.contents = Buffer.from(compiled(file));
+                file.contents = Buffer.from(compiled({
+                    ...metalsmith._metadata,
+                    ...file
+                }));
             } catch (e) {
                 console.log(
                     "Encountered error while processing " +
