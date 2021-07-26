@@ -86,7 +86,7 @@ module.exports = function(options) {
                 const compiled = hb.compile(source);
                 file.contents = Buffer.from(compiled({
                     ...metalsmith._metadata,
-                    ...file
+                    ...file.data
                 }));
             } catch (e) {
                 console.log(
