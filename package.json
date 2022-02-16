@@ -1,4 +1,6 @@
 {
+  "name": "metalsmith-handlebars-contents",
+  "version": "1.2.1",
   "author": {
     "name": "Tyler Akins"
   },
@@ -6,16 +8,15 @@
     "url": "https://github.com/fidian/metalsmith-handlebars-contents/issues"
   },
   "dependencies": {
-    "@fidian/handlebars-wax": "^7.1.0",
+    "@fidian/handlebars-wax": "^7.1.1",
     "debug": "^4.3.3",
     "handlebars": "^4.7.7",
-    "metalsmith-plugin-kit": "^1.2.0"
+    "metalsmith-plugin-kit": "^1.2.2"
   },
   "description": "Metalsmith plugin that processes file contets with handlebars.",
   "homepage": "https://github.com/fidian/metalsmith-handlebars-contents#readme",
   "license": "MIT",
   "main": "index.js",
-  "name": "metalsmith-handlebars-contents",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fidian/metalsmith-handlebars-contents.git"
@@ -29,6 +30,5 @@
     "handlebars",
     "template",
     "layout"
-  ],
-  "version": "1.2.0"
+  ]
 }

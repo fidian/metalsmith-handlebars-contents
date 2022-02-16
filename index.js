@@ -26,7 +26,7 @@ var debug, handlebars, handlebarsWax, pluginKit;
 debug = require("debug")("metalsmith-handlebars-contents");
 pluginKit = require("metalsmith-plugin-kit");
 handlebars = require("handlebars");
-handlebarsWax = require("handlebars-wax");
+handlebarsWax = require("@fidian/handlebars-wax");
 
 module.exports = function(options) {
     const waxKeys = ["data", "decorators", "helpers", "partials"];
