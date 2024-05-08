@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-handlebars-contents",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "author": {
     "name": "Tyler Akins"
   },
@@ -22,7 +22,8 @@
     "url": "git+https://github.com/fidian/metalsmith-handlebars-contents.git"
   },
   "scripts": {
-    "clean": "rm -rf node_modules/ package-lock.json"
+    "clean": "rm -rf node_modules/ package-lock.json",
+    "reinstall": "npm run clean && npm install"
   },
   "tags": [
     "metalsmith",
