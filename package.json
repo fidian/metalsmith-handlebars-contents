@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-handlebars-contents",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "author": {
     "name": "Tyler Akins"
   },
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@fidian/handlebars-wax": "^7.2.2",
-    "debug": "^4.3.6",
+    "debug": "^4.3.7",
     "handlebars": "^4.7.8",
     "metalsmith-plugin-kit": "^1.5.0"
   },
